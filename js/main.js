@@ -1,19 +1,25 @@
 // USER LOGIN / SIGNUP
 
 // HTML VARIABLES
-let signInBtn = document.getElementById('sign-in-btn');
-let signUpBtn = document.getElementById('sign-up-btn');
+let userEL = document.getElementsByClassName("input-label");
+let signInBtn = document.getElementById("sign-in-btn");
+let signUpBtn = document.getElementById("sign-up-btn");
+
+// Global Variable
+let user = [];
 
 // SIGN UP BTN CLICKED
-signUpBtn.addEventListener('click', signUpHandler);
+signUpBtn.addEventListener("click", signUpHandler);
 
 function signUpHandler() {
-  console.log('Sign Up Btn Clicked');
+  user.innerHTML = "";
+
+  // add use
 }
 
 // SIGN IN BTN CLICKED
-signInBtn.addEventListener('click', signInHandler);
+signInBtn.addEventListener("click", signInHandler);
 
 function signInHandler() {
-  console.log('Sign In Btn Clicked');
+  console.log("Sign In Btn Clicked");
 }
