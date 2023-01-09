@@ -14,8 +14,16 @@ signUpBtn.addEventListener("click", signUpHandler);
 function signUpHandler() {
   user.innerHTML = "";
 
-  // add use
+for (let i = 0; i < user.length; i++) {
+  if (user[i].includes(userEl.value))
+  console.log("Username already in Use.")
+} 
+else { 
+  userEL.appendCHild(user[i], i);
+
 }
+} 
+
 
 // SIGN IN BTN CLICKED
 signInBtn.addEventListener("click", signInHandler);
