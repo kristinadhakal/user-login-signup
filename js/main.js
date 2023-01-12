@@ -3,29 +3,36 @@
 //
 
 // HTML VARIABLES
-let userEL = document.getElementsByClassName("input-label");
 let signInBtn = document.getElementById("sign-in-btn");
 let signUpBtn = document.getElementById("sign-up-btn");
 
 // Global Variable
-let user = initUser();
+let users = initUsers();
 
 // SIGN UP BTN CLICKED
 signUpBtn.addEventListener("click", signUpHandler);
 
 function signUpHandler() {
-  user.innerHTML = "";
-  returnObject(name, password);
+  // Get user information from input elements
+  let name = document.getElementById("UpUser").value;
+  let password = document.getElementById("UpPassword").value;
+  let conPassword = document.getElementById("confirmPassword").value;
 
-  for (let i = 0; i < user.length; i++) {
-    if (user[i].includes(userEl.value)) {
-      console.log("Username already in Use.");
-    } else {
-      userEL.appendChild(user[i], i);
+  // Check if username has alread been used
+  let found = false;
+
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].name === name) {
+      found = true;
     }
   }
-}
 
+  if (found) {
+    console.log("Username already in Use.");
+  } else {
+    users.push(returnObject(name, password));
+  }
+}
 // SIGN IN BTN CLICKED
 signInBtn.addEventListener("click", signInHandler);
 
@@ -43,11 +50,11 @@ function returnObject(usernameParameter, passwordParameter) {
   };
 }
 
-function initUser() {
-  let jsonUser = localStorage.getItem("user");
+function initUsers() {
+  let jsonUser = localStorage.getItem("users");
   return JSON.parse(jsonUser) ?? [];
 }
 
-function saveUser() {
-  localStorage.setItem("user", JSON.stringify(user));
+function saveUsers() {
+  localStorage.setItem("users", JSON.stringify(users));
 }
