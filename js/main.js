@@ -19,6 +19,7 @@ function signUpHandler() {
   let conPassword = document.getElementById("confirmPassword").value;
 
   // Check if username has alread been used
+  // can't have if statement indide loop or else it will go bleh
   let found = false;
 
   for (let i = 0; i < users.length; i++) {
@@ -43,6 +44,8 @@ function signInHandler() {
   let password = document.getElementById("InPassword").value;
 
   // check if username nd password are already in array
+  // could put this inside funtion cuz reapted code
+  //
   let found = false;
 
   for (let i = 0; i < users.length; i++) {
