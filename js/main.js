@@ -28,16 +28,33 @@ function signUpHandler() {
   }
 
   if (found) {
-    console.log("Username already in Use.");
+    alert("Username already in Use.");
+    // save new membership to localstorage
   } else {
     users.push(returnObject(name, password));
+    alert("Sign Up successful!");
   }
 }
 // SIGN IN BTN CLICKED
 signInBtn.addEventListener("click", signInHandler);
 
 function signInHandler() {
-  console.log("Sign In Btn Clicked");
+  let name = document.getElementById("InUser").value;
+  let password = document.getElementById("InPassword").value;
+
+  // check if username nd password are already in array
+  let found = false;
+
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].name === name && users[i].password === password) {
+      found = true;
+    }
+  }
+  if (found) {
+    alert("Sign In successful!");
+  } else {
+    alert("Incorrect Username or Password.");
+  }
 }
 
 // helper
